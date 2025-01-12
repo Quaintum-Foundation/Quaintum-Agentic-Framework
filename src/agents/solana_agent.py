@@ -49,15 +49,3 @@ class SolanaAgent:
         except Exception as e:
             logger.error("Error interacting with contract %s: %s", program_id, e)
             return None
-
-class QuantumAgent:
-    def __init__(self, circuit_size: int, backend: str = "qiskit"):
-        self.circuit_builder = QuantumCircuitBuilder(circuit_size, backend)
-        self.model = QuantumMLModel()
-        logger.info("QuantumAgent initialized with circuit size: %d and backend: %s", circuit_size, backend)
-
-    def make_decision(self, input_data: list) -> float:
-        circuit = self.circuit_builder.build(input_data)
-        result = self.model.run(circuit)
-        logger.info("Quantum decision made: %s", result)
-        return result
