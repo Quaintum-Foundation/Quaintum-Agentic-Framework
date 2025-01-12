@@ -3,13 +3,13 @@ from sklearn.neural_network import MLPClassifier
 from agents.solana_agent import SolanaAgent
 
 class HybridAgent:
-    def __init__(self, circuit_size: int, rpc_url: str):
+    def __init__(self, circuit_size: int, rpc_url: str, hidden_layer_sizes=(10,), max_iter=1000):
         """
         Initializes a HybridAgent with quantum and Solana capabilities.
         :param circuit_size: Size of the quantum circuit.
         :param rpc_url: The RPC URL for the Solana cluster.
         """
-        self.model = MLPClassifier(hidden_layer_sizes=(10,), max_iter=1000)
+        self.model = MLPClassifier(hidden_layer_sizes=hidden_layer_sizes, max_iter=max_iter)
         self.solana_agent = SolanaAgent(rpc_url)
 
     def make_decision(self, input_data: list) -> float:

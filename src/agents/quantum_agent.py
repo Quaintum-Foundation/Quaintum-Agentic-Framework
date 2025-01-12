@@ -1,5 +1,8 @@
 from quantum.circuits import QuantumCircuitBuilder
 from ml.quantum_ml import QuantumMLModel
+import logging
+
+logger = logging.getLogger(__name__)
 
 class QuantumAgent:
     def __init__(self, circuit_size: int, backend: str = "qiskit"):
@@ -19,4 +22,5 @@ class QuantumAgent:
         """
         circuit = self.circuit_builder.build(input_data)
         result = self.model.run(circuit)
+        logger.info("Quantum decision made: %s", result)
         return result

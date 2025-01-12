@@ -1,3 +1,5 @@
+from qiskit import QuantumCircuit
+
 class QuantumCircuitBuilder:
     def __init__(self, circuit_size: int, backend: str):
         """
@@ -14,6 +16,9 @@ class QuantumCircuitBuilder:
         :param input_data: Input data for quantum circuit.
         :return: A string representation of the quantum circuit.
         """
-        # Logic for building a quantum circuit based on input data
-        # Placeholder code: would be replaced by Qiskit/PennyLane or other quantum libraries
-        return f"Quantum Circuit with size {self.circuit_size} built."
+        circuit = QuantumCircuit(self.circuit_size)
+        # Logic to build the circuit based on input_data
+        return circuit
+
+    def visualize(self, circuit: QuantumCircuit):
+        circuit.draw('mpl')  # Requires matplotlib
