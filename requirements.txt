@@ -1,0 +1,6 @@
+qiskit
+pennylane
+numpy
+scikit-learn
+unittest
+solana
