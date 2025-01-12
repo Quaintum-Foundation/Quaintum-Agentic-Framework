@@ -1,4 +1,5 @@
 from qiskit import QuantumCircuit
+from qiskit.visualization import plot_histogram
 
 class QuantumCircuitBuilder:
     def __init__(self, circuit_size: int, backend: str):
@@ -21,4 +22,5 @@ class QuantumCircuitBuilder:
         return circuit
 
     def visualize(self, circuit: QuantumCircuit):
-        circuit.draw('mpl')  # Requires matplotlib
+        circuit.draw('mpl') 
+        plot_histogram(circuit)
