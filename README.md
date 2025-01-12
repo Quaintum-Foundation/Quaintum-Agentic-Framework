@@ -20,3 +20,8 @@ To get started with the Quaintum Agentic Framework, follow these steps:
 
 ```pip install -r requirements.txt```
 
+3. Try out an example:
+
+```python examples/web3_integration_demo.py```
+
+For more information, check out the Documentation.
