@@ -1,7 +1,7 @@
 from quantum.circuits import QuantumCircuitBuilder
 from ml.quantum_ml import QuantumMLModel
 from agents.base_agent import BaseAgent
-
+from quantum.optimization import QuantumOptimizer
 from quantum.optimization import QAOA, VQE
 import logging
 from typing import List
@@ -18,6 +18,7 @@ class QuantumAgent(BaseAgent):
         """
         self.circuit_builder = QuantumCircuitBuilder(circuit_size, backend)
         self.model = QuantumMLModel()
+        self.optimizer = QuantumOptimizer(backend=backend)
 
     def make_decision(self, input_data: List[float]) -> float:
         """
@@ -38,3 +39,11 @@ class QuantumAgent(BaseAgent):
     def optimize_vqe(self, hamiltonian):
         vqe = VQE()
         return vqe.solve(hamiltonian)
+    
+    def optimize(self, problem: dict):
+        """
+        Uses quantum optimization (QAOA or VQE) to solve the given problem.
+        :param problem: A dictionary defining the optimization problem.
+        :return: Optimization results.
+        """
+        return self.optimizer.optimize_qaoa(problem)
