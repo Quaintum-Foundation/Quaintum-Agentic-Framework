@@ -93,3 +93,26 @@ class SolanaAgent:
         except Exception as e:
             logger.error("Error creating token account: %s", str(e))
             raise RuntimeError(f"Failed to create token account: {str(e)}")
+
+    def transfer_tokens(self, mint_key: str, from_key: str, to_key: str, amount: int):
+        """
+        Transfer SPL tokens between accounts.
+        :param mint_key: Public key of the token mint.
+        :param from_key: Sender's public key.
+        :param to_key: Recipient's public key.
+        :param amount: Amount of tokens to transfer.
+        """
+        try:
+            token = Token(self.client, PublicKey(mint_key), TOKEN_PROGRAM_ID, PublicKey(from_key))
+            transaction = token.transfer(
+                source=PublicKey(from_key),
+                dest=PublicKey(to_key),
+                owner=PublicKey(from_key),
+                amount=amount,
+            )
+            logger.info("Transferred %d tokens from %s to %s", amount, from_key, to_key)
+            return transaction
+        except Exception as e:
+            logger.error("Error transferring tokens: %s", str(e))
+            raise RuntimeError(f"Failed to transfer tokens: {str(e)}")
+
