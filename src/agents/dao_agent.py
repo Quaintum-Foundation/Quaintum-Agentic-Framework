@@ -63,3 +63,6 @@ class DAOAgent:
             logger.info("Member %s voted %s on proposal %d", member_key, "yes" if vote else "no", proposal_index)
         else:
             logger.warning("Member %s is not part of the DAO: %s", member_key, self.dao_name)
+
+    def mint_token(self, token_name: str, initial_supply: int):
+        logger.info(f"Minting token {token_name} with supply {initial_supply}")

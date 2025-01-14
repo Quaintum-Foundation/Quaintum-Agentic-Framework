@@ -49,3 +49,9 @@ class SolanaAgent:
         except Exception as e:
             logger.error("Error interacting with contract %s: %s", program_id, e)
             return None
+        
+    def mint_spl_token(self, owner_key: str, initial_supply: int, decimals: int = 9):
+        logger.info(f"Minting SPL token with initial supply {initial_supply} and decimals {decimals}")
+
+    def interact_with_smart_contract(self, program_id: str, data: bytes):
+        logger.info(f"Sending data to program {program_id}")
