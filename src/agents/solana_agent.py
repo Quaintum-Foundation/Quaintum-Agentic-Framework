@@ -116,3 +116,27 @@ class SolanaAgent:
             logger.error("Error transferring tokens: %s", str(e))
             raise RuntimeError(f"Failed to transfer tokens: {str(e)}")
 
+    def execute_contract(self, program_id: str, data: bytes, accounts: list, from_key: str):
+        """
+        Execute a smart contract (Solana program).
+        :param program_id: ID of the Solana program.
+        :param data: Data to send to the contract.
+        :param accounts: List of account dicts required by the program.
+        :param from_key: The public key of the caller.
+        :return: Transaction signature.
+        """
+        try:
+            transaction = Transaction()
+            transaction.add(
+                self.client.transaction_instruction(
+                    program_id=PublicKey(program_id),
+                    data=data,
+                    accounts=accounts,
+                )
+            )
+            response = self.client.send_transaction(transaction, from_key)
+            logger.info("Executed contract %s with data: %s", program_id, data)
+            return response
+        except Exception as e:
+            logger.error("Error executing contract %s: %s", program_id, e)
+            raise RuntimeError(f"Failed to execute contract {program_id}: {str(e)}")
