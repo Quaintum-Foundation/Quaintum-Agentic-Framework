@@ -78,5 +78,18 @@ class SolanaAgent:
             logger.error("Error minting tokens: %s", str(e))
             raise RuntimeError(f"Failed to mint tokens: {str(e)}")
 
-    def interact_with_smart_contract(self, program_id: str, data: bytes):
-        logger.info(f"Sending data to program {program_id}")
+    def create_token_account(self, owner_key: str, mint_key: str):
+        """
+        Create a token account for the specified mint.
+        :param owner_key: Public key of the token account owner.
+        :param mint_key: Public key of the token mint.
+        :return: Address of the new token account.
+        """
+        try:
+            token = Token(self.client, PublicKey(mint_key), TOKEN_PROGRAM_ID, PublicKey(owner_key))
+            token_account = token.create_account(PublicKey(owner_key))
+            logger.info("Created token account: %s for owner: %s", token_account, owner_key)
+            return token_account
+        except Exception as e:
+            logger.error("Error creating token account: %s", str(e))
+            raise RuntimeError(f"Failed to create token account: {str(e)}")
