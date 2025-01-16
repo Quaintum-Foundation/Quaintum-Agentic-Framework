@@ -1,5 +1,12 @@
 # Quaintum Agentic Framework (Quantum AI)
 
+<a href='https://github.com/Quaintum-research-labs/Quaintum-Agentic-Framework/'><img src='https://img.shields.io/badge/Paper-PDF-red'></a>
+<a href='https://docs/'><img src='https://img.shields.io/badge/Documentation-QUAINTUM-green'></a>
+[![Code License](https://img.shields.io/badge/Code%20License-MIT-orange.svg)](https://github.com/Quaintum-research-labs/Quaintum-Agentic-Framework/blob/main/LICENSE)
+<a href='https://discord.gg/<>'><img src='https://img.shields.io/badge/Community-Discord-8A2BE2'></a>
+
+---
+
 This framework combines quantum computing, AI, and Web3 technologies to build intelligent agents capable of complex decision-making in a decentralized world.
 
 ## Features
