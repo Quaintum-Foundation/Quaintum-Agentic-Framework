@@ -6,6 +6,7 @@ from solana.rpc.types import TxOpts
 from solana.system_program import create_account
 from spl.token.client import Token
 from spl.token.constants import TOKEN_PROGRAM_ID
+
 import logging
 
 logging.basicConfig(level=logging.INFO)
