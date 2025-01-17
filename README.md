@@ -182,6 +182,54 @@ The Quantum Web3 Agentic Framework bridges the gap between cutting-edge quantum 
 
 ---
 
+### 8. How to Run the Code
+
+To run the codebase, follow these steps:
+
+1. **Clone the Repository**
+   Clone the repository to your local machine using Git:
+   ```bash
+   git clone https://github.com/Quaintum-research-labs/Quaintum-Agentic-Framework.git
+   cd Quaintum-Agentic-Framework
+   ```
+
+2. **Set Up a Virtual Environment**
+   It is recommended to use a virtual environment to manage dependencies:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
+
+3. **Install Dependencies**
+   Install the required packages using pip:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Configure Environment Variables**
+   Set up any necessary environment variables. You can create a `.env` file in the root directory with the following content:
+   ```plaintext
+   RPC_URL=https://api.mainnet-beta.solana.com
+   LOG_LEVEL=INFO
+   ```
+
+5. **Run the Examples**
+   You can run the provided example scripts to see the framework in action. For instance, to run the web3 integration demo:
+   ```bash
+   python examples/web3_integration_demo.py
+   ```
+
+6. **Run Tests**
+   To ensure everything is working correctly, you can run the unit tests:
+   ```bash
+   python -m unittest discover -s tests
+   ```
+
+7. **Explore the Code**
+   Feel free to explore the codebase and modify it as needed. The main components are located in the `src` directory, and you can find various agents and optimization algorithms implemented there.
+
+For more detailed usage instructions, refer to the documentation or the individual module files.
+
 ## References
 
 1. IBM Qiskit Documentation. ([https://qiskit.org/documentation/](https://qiskit.org/documentation/))
@@ -189,3 +237,5 @@ The Quantum Web3 Agentic Framework bridges the gap between cutting-edge quantum 
 3. TensorFlow Documentation. ([https://www.tensorflow.org/](https://www.tensorflow.org/))
 4. "Quantum-Enhanced Federated Learning with Secure Aggregation." ([https://arxiv.org/pdf/2408.10726](https://arxiv.org/pdf/2408.10726))
 5. PennyLane Documentation. ([https://pennylane.ai/qml](https://pennylane.ai/qml))
+
+
