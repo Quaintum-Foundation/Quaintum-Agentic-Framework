@@ -13,4 +13,4 @@ class QuantumMLModel:
         """
         # Placeholder code for quantum computation. In reality, this could use Qiskit or PennyLane.
         print(f"Running quantum model with circuit: {quantum_circuit}")
-        return 0.75  # Placeholder result
+        return 0.75  
