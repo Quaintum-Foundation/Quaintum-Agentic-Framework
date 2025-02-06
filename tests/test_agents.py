@@ -30,6 +30,5 @@ class TestAgents(unittest.TestCase):
         self.assertIn(action, [0, 1])
         agent.update_q_value('state1', action, 1, 'state2')
         self.assertTrue('state1' in agent.q_table)
-
 if __name__ == '__main__':
     unittest.main()
