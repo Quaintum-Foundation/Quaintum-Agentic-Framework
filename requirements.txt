@@ -4,3 +4,5 @@ numpy
 scikit-learn
 unittest
 solana
+openai
+tweepy
